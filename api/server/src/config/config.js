@@ -7,18 +7,18 @@ module.exports = {
   // },
 
   development: {
-    database: "book_dev",
-    username: "docker",
-    password: "docker",
-    host: "127.0.0.1",
+    database: process.env.DB_NAME + "_dev",
+    username: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    host: process.env.DB_HOST,
     dialect: "postgres",
   },
 
   test: {
-    database: "book_test",
-    username: "docker",
-    password: "docker",
-    host: "127.0.0.1",
+    database: process.env.DB_NAME + "_test",
+    username: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    host: process.env.DB_HOST,
     dialect: "postgres",
   },
 

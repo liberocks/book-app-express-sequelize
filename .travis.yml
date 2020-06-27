@@ -12,10 +12,16 @@ services:
 env:
   global:
   - NODE_ENV=test
+  - DB_NAME=book
+  - DB_USER=docker
+  - DB_PASS=docker
+  - DB_PORT=5432
+  - DB_HOST=127.0.0.1
+  - SECRET_KEY=any_secret
 
 before_script:
-  - psql -c 'create database book_test;' -U postgres
-  - psql -c "CREATE USER steven WITH PASSWORD null;" -U postgres
+  - psql -c "create database ${DB_NAME}; -U postgres
+  - psql -c "CREATE USER ${DB_USER} WITH PASSWORD ${DB_PASS};" -U postgres
   - npm run build
   - npm install -g sequelize-cli
   - sequelize db:migrate
