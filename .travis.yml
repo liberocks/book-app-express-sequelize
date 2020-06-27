@@ -12,15 +12,15 @@ services:
 env:
   global:
   - NODE_ENV=test
-  - DB_NAME=travis
-  - DB_USER=travis
-  - DB_PASS=travis
+  - DB_NAME=travis_db
+  - DB_USER=travis_user
+  - DB_PASS=travis_pass
   - DB_PORT=5432
   - DB_HOST=127.0.0.1
   - SECRET_KEY=any_secret
 
 before_script:
-  - psql -c "CREATE DATABASE ${DB_NAME};" -U ${DB_USER}
+  - psql -c "CREATE DATABASE ${DB_NAME}_test;" -U ${DB_USER}
   - psql -c "CREATE USER ${DB_USER} WITH PASSWORD ${DB_PASS};" -U ${DB_USER}
   - npm run build
   - npm install -g sequelize-cli
