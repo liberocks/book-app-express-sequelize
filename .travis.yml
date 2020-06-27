@@ -20,7 +20,7 @@ env:
   - SECRET_KEY=any_secret
 
 before_script:
-  - psql -c "CREATE DATABASE ${DB_NAME};"" -U ${DB_USER}
+  - psql -c "CREATE DATABASE ${DB_NAME};" -U ${DB_USER}
   - psql -c "CREATE USER ${DB_USER} WITH PASSWORD ${DB_PASS};" -U ${DB_USER}
   - npm run build
   - npm install -g sequelize-cli
